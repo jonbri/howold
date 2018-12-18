@@ -1,21 +1,4 @@
-var aPeople = [
-  {
-    name: "Tracy",
-    birthday: moment("1983-07-07")
-  },
-  {
-    name: "Jonathan",
-    birthday: moment("1985-08-12")
-  },
-  {
-    name: "Austin",
-    birthday: moment("2015-07-16")
-  },
-  {
-    name: "Jason",
-    birthday: moment("2017-05-08")
-  }
-];
+var aData = window.aData;
 
 // https://codepen.io/blackjacques/pen/RKPKba
 String.prototype.singularize = function(num) {
@@ -52,12 +35,12 @@ setInterval(function() {
 }, 1000);
 go();
 function go() {
-  aPeople = aPeople.map(function(o) {
+  aData = aData.map(function(o) {
       o.formattedAge = Date.getFormattedDateDiff(o.birthday, moment(new Date()));
       return o;
   });
   ReactDOM.render(
-      React.createElement(Home, {data: aPeople}, null),
+      React.createElement(Home, {data: aData}, null),
       document.getElementById('root')
   );
 }
