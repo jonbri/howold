@@ -18,25 +18,23 @@ Date.getFormattedDateDiff = function(date1, date2, intervals) {
   return out.join(', ');
 };
 
-class Home extends React.Component {
-    render() {
-        return React.createElement('div', {},
-            this.createTimestamp(),
-            this.createTable()
-        );
-    }
-    createTimestamp() {
-        return React.createElement('h3', null, "Today is " + moment().format("MMMM DD, YYYY") + ".");
-    }
-    createTable() {
-        return React.createElement('table', {}, this.props.data
-            .map(function(o) {
-                return React.createElement('tr', null, [
-                    React.createElement('td', null, o.name + ":"),
-                    React.createElement('td', null, o.formattedAge)
-                ]);
-            }));
-    }
+function createTimestamp() {
+    return React.createElement('h3', null, "Today is " + moment().format("MMMM DD, YYYY") + ".");
+}
+function createTable(props) {
+    return React.createElement('table', {}, props.data
+        .map(function(o) {
+            return React.createElement('tr', null, [
+                React.createElement('td', null, o.name + ":"),
+                React.createElement('td', null, o.formattedAge)
+            ]);
+        }));
+}
+function Home(props) {
+    return React.createElement('div', {},
+        createTimestamp(),
+        createTable(props)
+    );
 }
 
 function go() {
