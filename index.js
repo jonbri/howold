@@ -20,27 +20,25 @@ Date.getFormattedDateDiff = function(date1, date2, intervals) {
 
 class Home extends React.Component {
     render() {
-        var aDivs = [];
-        aDivs.push(React.createElement('h3', null, moment().toString()));
-
-        var aTrs = [];
-        this.props.data
-            .forEach(function(o) {
-                aTrs.push(React.createElement('tr', null, [
+        return React.createElement('div', {},
+            this.createTimestamp(),
+            this.createTable()
+        );
+    }
+    createTimestamp() {
+        return React.createElement('h3', null, moment().toString());
+    }
+    createTable() {
+        return React.createElement('table', {}, this.props.data
+            .map(function(o) {
+                return React.createElement('tr', null, [
                     React.createElement('td', null, o.name),
                     React.createElement('td', null, o.formattedAge)
-                ]));
-            });
-
-        aDivs.push(React.createElement('table', {}, ...aTrs));
-        return React.createElement('div', {}, ...aDivs)
+                ]);
+            }));
     }
 }
 
-setInterval(function() {
-  go();
-}, 1000);
-go();
 function go() {
   aData = aData.map(function(o) {
       o.formattedAge = Date.getFormattedDateDiff(o.birthday, moment(new Date()));
@@ -50,4 +48,7 @@ function go() {
       React.createElement(Home, {data: aData}, null),
       document.getElementById('root')
   );
+
+  setTimeout(go, 1000);
 }
+go();
