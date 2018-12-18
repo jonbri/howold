@@ -18,32 +18,32 @@ function getFormattedDateDiff(date1, date2, intervals) {
 };
 
 function createTimestamp() {
-    return React.createElement('h3', null, "Today is " + moment().format("MMMM DD, YYYY") + ".");
+  return React.createElement('h3', null, "Today is " + moment().format("MMMM DD, YYYY") + ".");
 }
 function createTable(props) {
-    return React.createElement('table', {}, props.data
-        .map(function(o) {
-            return React.createElement('tr', null, [
-                React.createElement('td', null, o.name + ":"),
-                React.createElement('td', null, o.formattedAge)
-            ]);
-        }));
+  return React.createElement('table', {}, props.data
+    .map(function(o) {
+      return React.createElement('tr', null, [
+        React.createElement('td', null, o.name + ":"),
+        React.createElement('td', null, o.formattedAge)
+      ]);
+    }));
 }
 function Home(props) {
-    return React.createElement('div', {},
-        createTimestamp(),
-        createTable(props)
-    );
+  return React.createElement('div', {},
+    createTimestamp(),
+    createTable(props)
+  );
 }
 
 function go() {
   aData = aData.map(function(o) {
-      o.formattedAge = getFormattedDateDiff(o.birthday, moment(new Date()));
-      return o;
+    o.formattedAge = getFormattedDateDiff(o.birthday, moment(new Date()));
+    return o;
   });
   ReactDOM.render(
-      React.createElement(Home, {data: aData}, null),
-      document.getElementById('root')
+    React.createElement(Home, {data: aData}, null),
+    document.getElementById('root')
   );
   // setTimeout(go, 1000);
 }
