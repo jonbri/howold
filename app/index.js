@@ -8,10 +8,10 @@ function transformData(o) {
 function getFormattedDateDiff(date1, date2, intervals) {
   var b = moment(date1),
     a = moment(date2),
-    intervals = intervals || ["years","months","weeks","days"],
     out = [];
+  intervals = intervals || ["years", "months", "weeks", "days"];
   function singularize(s, num) {
-    return (num == 1 ? s.slice(0, -1) : s);
+    return (num === 1 ? s.slice(0, -1) : s);
   };
   intervals.forEach(function(interval) {
     var diff = a.diff(b, interval);

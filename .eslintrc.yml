@@ -1,0 +1,26 @@
+env:
+  browser: true
+globals:
+  React: true
+  ReactDOM: true
+  moment: true
+extends: standard
+rules:
+  comma-dangle: 0
+  no-empty: warn
+  no-console: 0
+  semi:
+    - 2
+    - always
+  linebreak-style:
+    - 2
+    - unix
+  quotes:
+    - 2
+    - double
+  indent:
+    - 2
+  no-underscore-dangle: 0
+  space-before-function-paren: 0
+  one-var: 0
+
