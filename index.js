@@ -26,13 +26,13 @@ class Home extends React.Component {
         );
     }
     createTimestamp() {
-        return React.createElement('h3', null, moment().toString());
+        return React.createElement('h3', null, "Today is " + moment().format("MMMM DD, YYYY") + ".");
     }
     createTable() {
         return React.createElement('table', {}, this.props.data
             .map(function(o) {
                 return React.createElement('tr', null, [
-                    React.createElement('td', null, o.name),
+                    React.createElement('td', null, o.name + ":"),
                     React.createElement('td', null, o.formattedAge)
                 ]);
             }));
@@ -48,7 +48,6 @@ function go() {
       React.createElement(Home, {data: aData}, null),
       document.getElementById('root')
   );
-
-  setTimeout(go, 1000);
+  // setTimeout(go, 1000);
 }
 go();
