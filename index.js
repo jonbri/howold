@@ -22,10 +22,17 @@ class Home extends React.Component {
     render() {
         var aDivs = [];
         aDivs.push(React.createElement('h3', null, moment().toString()));
+
+        var aTrs = [];
         this.props.data
             .forEach(function(o) {
-                aDivs.push(React.createElement('div', null, `${o.name}: ${o.formattedAge}`));
+                aTrs.push(React.createElement('tr', null, [
+                    React.createElement('td', null, o.name),
+                    React.createElement('td', null, o.formattedAge)
+                ]));
             });
+
+        aDivs.push(React.createElement('table', {}, ...aTrs));
         return React.createElement('div', {}, ...aDivs)
     }
 }
