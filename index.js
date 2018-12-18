@@ -1,19 +1,18 @@
 var aData = window.aData;
 
-// https://codepen.io/blackjacques/pen/RKPKba
-String.prototype.singularize = function(num) {
-  return (num == 1 ? this.slice(0, -1) : this);
-};
-Date.getFormattedDateDiff = function(date1, date2, intervals) {
+function getFormattedDateDiff(date1, date2, intervals) {
+  // https://codepen.io/blackjacques/pen/RKPKba
   var b = moment(date1),
     a = moment(date2),
     intervals = intervals || ['years','months','weeks','days'],
     out = [];
-
+  function singularize(s, num) {
+    return (num == 1 ? s.slice(0, -1) : s);
+  };
   intervals.forEach(function(interval) {
     var diff = a.diff(b, interval);
     b.add(diff, interval);
-    out.push(diff + ' ' + interval.singularize(diff));
+    out.push(diff + ' ' + singularize(interval, diff));
   });
   return out.join(', ');
 };
@@ -39,7 +38,7 @@ function Home(props) {
 
 function go() {
   aData = aData.map(function(o) {
-      o.formattedAge = Date.getFormattedDateDiff(o.birthday, moment(new Date()));
+      o.formattedAge = getFormattedDateDiff(o.birthday, moment(new Date()));
       return o;
   });
   ReactDOM.render(
