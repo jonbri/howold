@@ -32,7 +32,7 @@ function Home(props) {
     return React.createElement("table", {}, props.data
       .map(function(o) {
         return React.createElement("tr", null, [
-          React.createElement("td", null, o.name + ":"),
+          React.createElement("td", null, o.name + " (" + o.birthday + "):"),
           React.createElement("td", null, o.formattedAge)
         ]);
       }));
