@@ -1,7 +1,19 @@
 // called for each member of window.aData
 function transformData(o) {
-  o.formattedAge = getFormattedDateDiff(o.birthday, moment(new Date()));
+  o.formattedAge = getFormattedDateDiff(o.birthday, moment());
+  var sBirthdayCurrentYear = o.birthday.replace(/^[\d]+/, (new Date()).getFullYear());
+  var iBirthdayDayOfYear = getDayOfYear(sBirthdayCurrentYear);
+  var iCurrentDayOfYear = getDayOfYear(moment());
+  if (iBirthdayDayOfYear > iCurrentDayOfYear) { // birthday has not yet passed
+    o.daysUntilBirthday = iBirthdayDayOfYear - iCurrentDayOfYear;
+  } else {
+    o.daysUntilBirthday = iBirthdayDayOfYear + (365 - iCurrentDayOfYear);
+  }
   return o;
+}
+
+function getDayOfYear(m) {
+  return parseInt(moment(m).format("DDD"));
 }
 
 // https://codepen.io/blackjacques/pen/RKPKba
@@ -9,7 +21,7 @@ function getFormattedDateDiff(date1, date2, intervals) {
   var b = moment(date1),
     a = moment(date2),
     out = [];
-  intervals = intervals || ["years", "months", "weeks", "days"];
+  intervals = intervals || ["years", "months"];
   function singularize(s, num) {
     return (num === 1 ? s.slice(0, -1) : s);
   };
@@ -29,13 +41,26 @@ function Home(props) {
     return React.createElement("h3", null, "Today is " + moment().format("MMMM DD, YYYY") + ".");
   }
   function createTable(props) {
-    return React.createElement("table", {}, props.data
-      .map(function(o) {
-        return React.createElement("tr", null, [
-          React.createElement("td", null, o.name + " (" + o.birthday + "):"),
-          React.createElement("td", null, o.formattedAge)
-        ]);
-      }));
+    function createHeaderRow() {
+      return React.createElement("tr", null, [
+        React.createElement("th", null, "Name"),
+        React.createElement("th", null, "Birthday"),
+        React.createElement("th", null, "Age"),
+        React.createElement("th", null, "Days Until Birthday")
+      ]);
+    }
+    function createRows() {
+      return props.data
+        .map(function(o) {
+          return React.createElement("tr", null, [
+            React.createElement("td", null, o.name),
+            React.createElement("td", null, o.birthday),
+            React.createElement("td", null, o.formattedAge),
+            React.createElement("td", null, o.daysUntilBirthday)
+          ]);
+        });
+    }
+    return React.createElement("table", {}, [createHeaderRow()].concat(createRows()));
   }
   return React.createElement("div", {},
     createTimestamp(),

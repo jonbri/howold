@@ -6,3 +6,12 @@ ul {
   list-style-type: none;
   padding-left: 0;
 }
+
+table {
+  border: 1px solid gray;
+}
+table td {
+  border-bottom: 1px solid gray;
+  text-align: center;
+  padding: 5px;
+}
