@@ -16,7 +16,9 @@ function getFormattedDateDiff(date1, date2, intervals) {
   intervals.forEach(function(interval) {
     var diff = a.diff(b, interval);
     b.add(diff, interval);
-    out.push(diff + " " + singularize(interval, diff));
+    if (diff > 0) {
+      out.push(diff + " " + singularize(interval, diff));
+    }
   });
   return out.join(", ");
 };
