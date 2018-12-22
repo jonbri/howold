@@ -62,13 +62,28 @@ function Home(props) {
     }
     return React.createElement("table", {}, [createHeaderRow()].concat(createRows()));
   }
+  var checkbox = document.getElementById("twentyFourCheckBox") || { checked: false };
   return React.createElement("div", {},
     createTimestamp(),
     React.createElement(Clock, {
-      twentyFour: document.getElementById("twentyFourCheckBox").checked
+      twentyFour: checkbox.checked
     }, null),
+    React.createElement(CheckBox, {
+      onChange: go
+    }, {}),
     createTable(props)
   );
+}
+
+function CheckBox(props) {
+  return React.createElement("div", {}, [
+    React.createElement("input", {
+      id: "twentyFourCheckBox", type: "checkbox", onChange: props.onChange
+    }),
+    React.createElement("label", {
+      for: "twentyFourCheckBox"
+    }, "24?")
+  ]);
 }
 
 function Digit(props) {
@@ -94,25 +109,15 @@ function Clock(props) {
   }, [
     React.createElement(Digit, { number: getHours() }, null),
     React.createElement(Digit, { number: now.getMinutes() }, null),
-    React.createElement(Digit, { number: now.getSeconds() }, null)
+    React.createElement(Digit, { number: now.getSeconds() }, null),
   ]);
 }
-
-var checkbox = document.getElementById("twentyFourCheckBox");
-checkbox.addEventListener("change", function(event) {
-  if (event.target.checked) {
-    console.log("checked");
-    go();
-  } else {
-    console.log("not checked");
-    go();
-  }
-});
 
 function go() {
   ReactDOM.render(
     React.createElement(Home, {
-      data: window.aData.map(transformData)
+      data: window.aData.map(transformData),
+      twentyFour: false
     }, null),
     document.getElementById("root")
   );
