@@ -62,62 +62,77 @@ function Home(props) {
     }
     return React.createElement("table", {}, [createHeaderRow()].concat(createRows()));
   }
-  var checkbox = document.getElementById("twentyFourCheckBox") || { checked: false };
   return React.createElement("div", {},
     createTimestamp(),
-    React.createElement(Clock, {
-      twentyFour: checkbox.checked
-    }, null),
-    React.createElement(CheckBox, {
-      onChange: go
-    }, {}),
+    React.createElement(Clock, {}, null),
     createTable(props)
   );
 }
 
-function CheckBox(props) {
-  return React.createElement("div", {}, [
-    React.createElement("input", {
-      id: "twentyFourCheckBox", type: "checkbox", onChange: props.onChange
-    }),
-    React.createElement("label", {
-      for: "twentyFourCheckBox"
-    }, "24?")
-  ]);
+function Digit(props) {
+  var iNum = parseInt(props.number);
+  return React.createElement("span", {
+    class: "digit digit" + props.number
+  });
 }
 
-function Digit(props) {
-  return React.createElement("div", {
-    class: "digit"
-  }, [
-    React.createElement("div", {}, "--" + props.number + "--"),
-    React.createElement("div", {}, "--" + props.number + "--"),
-    React.createElement("div", {}, "--" + props.number + "--")
-  ]);
+function Colon(props) {
+  return React.createElement("span", {
+    class: "colon"
+  });
 }
 
 function Clock(props) {
-  var now = new Date();
-  function getHours() {
-    if (props.twentyFour === true) {
-      return now.getHours();
-    }
-    return "todo";
+  function getHours12(date) {
+    return (date.getHours() + 24) % 12 || 12;
   }
+
+  var now = new Date(),
+      aDigits = [];
+
+  function getCharArray(i) {
+    return (i + '').split('');
+  }
+
+  function pad(n) {
+    return (n < 10) ? '0' + n : n;
+  }
+
+  var aHours = getCharArray(pad(getHours12(new Date())));
+  var aMinutes = getCharArray(pad(now.getMinutes()));
+  var aSeconds = getCharArray(pad(now.getSeconds()));
+
+  aDigits = aDigits.concat(aHours);
+  aDigits = aDigits.concat([10]);
+  aDigits = aDigits.concat(aMinutes);
+  aDigits = aDigits.concat([10]);
+  aDigits = aDigits.concat(aSeconds);
+
   return React.createElement("div", {
     class: "clock"
   }, [
-    React.createElement(Digit, { number: getHours() }, null),
-    React.createElement(Digit, { number: now.getMinutes() }, null),
-    React.createElement(Digit, { number: now.getSeconds() }, null),
+    // aDigits
+    //   .map(function(i) {
+    //     return React.createElement(Digit, { number: i }, null);
+    //   })
+
+    React.createElement(Digit, { number: aHours[0] }, null),
+    React.createElement(Digit, { number: aHours[1] }, null),
+    React.createElement(Colon, {}, null),
+
+    React.createElement(Digit, { number: aMinutes[0] }, null),
+    React.createElement(Digit, { number: aMinutes[1] }, null),
+    React.createElement(Colon, {}, null),
+
+    React.createElement(Digit, { number: aSeconds[0] }, null),
+    React.createElement(Digit, { number: aSeconds[1] }, null)
   ]);
 }
 
 function go() {
   ReactDOM.render(
     React.createElement(Home, {
-      data: window.aData.map(transformData),
-      twentyFour: false
+      data: window.aData.map(transformData)
     }, null),
     document.getElementById("root")
   );
