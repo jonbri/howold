@@ -64,9 +64,50 @@ function Home(props) {
   }
   return React.createElement("div", {},
     createTimestamp(),
+    React.createElement(Clock, {
+      twentyFour: document.getElementById("twentyFourCheckBox").checked
+    }, null),
     createTable(props)
   );
 }
+
+function Digit(props) {
+  return React.createElement("div", {
+    class: "digit"
+  }, [
+    React.createElement("div", {}, "--" + props.number + "--"),
+    React.createElement("div", {}, "--" + props.number + "--"),
+    React.createElement("div", {}, "--" + props.number + "--")
+  ]);
+}
+
+function Clock(props) {
+  var now = new Date();
+  function getHours() {
+    if (props.twentyFour === true) {
+      return now.getHours();
+    }
+    return "todo";
+  }
+  return React.createElement("div", {
+    class: "clock"
+  }, [
+    React.createElement(Digit, { number: getHours() }, null),
+    React.createElement(Digit, { number: now.getMinutes() }, null),
+    React.createElement(Digit, { number: now.getSeconds() }, null)
+  ]);
+}
+
+var checkbox = document.getElementById("twentyFourCheckBox");
+checkbox.addEventListener("change", function(event) {
+  if (event.target.checked) {
+    console.log("checked");
+    go();
+  } else {
+    console.log("not checked");
+    go();
+  }
+});
 
 function go() {
   ReactDOM.render(
@@ -75,6 +116,6 @@ function go() {
     }, null),
     document.getElementById("root")
   );
-  // setTimeout(go, 1000);
+  setTimeout(go, 1000);
 }
 go();

@@ -15,3 +15,14 @@ table td {
   text-align: center;
   padding: 5px;
 }
+
+.clock {
+}
+.clock > * {
+  margin: 1px;
+}
+.digit {
+  border: 1px solid black;
+  display: inline-flex;
+  flex-direction: column;
+}
