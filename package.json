@@ -4,7 +4,7 @@
   "description": "",
   "main": "data.js",
   "scripts": {
-    "test": "eslint app/index.js"
+    "test": "eslint app/index.js app/Clock.js"
   },
   "repository": {
     "type": "git",

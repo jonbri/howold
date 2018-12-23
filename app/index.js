@@ -64,69 +64,9 @@ function Home(props) {
   }
   return React.createElement("div", {},
     createTimestamp(),
-    React.createElement(Clock, {}, null),
+    React.createElement(window.Clock, {}, null),
     createTable(props)
   );
-}
-
-function Digit(props) {
-  var iNum = parseInt(props.number);
-  return React.createElement("span", {
-    class: "digit digit" + props.number
-  });
-}
-
-function Colon(props) {
-  return React.createElement("span", {
-    class: "colon"
-  });
-}
-
-function Clock(props) {
-  function getHours12(date) {
-    return (date.getHours() + 24) % 12 || 12;
-  }
-
-  var now = new Date(),
-      aDigits = [];
-
-  function getCharArray(i) {
-    return (i + '').split('');
-  }
-
-  function pad(n) {
-    return (n < 10) ? '0' + n : n;
-  }
-
-  var aHours = getCharArray(pad(getHours12(new Date())));
-  var aMinutes = getCharArray(pad(now.getMinutes()));
-  var aSeconds = getCharArray(pad(now.getSeconds()));
-
-  aDigits = aDigits.concat(aHours);
-  aDigits = aDigits.concat([10]);
-  aDigits = aDigits.concat(aMinutes);
-  aDigits = aDigits.concat([10]);
-  aDigits = aDigits.concat(aSeconds);
-
-  return React.createElement("div", {
-    class: "clock"
-  }, [
-    // aDigits
-    //   .map(function(i) {
-    //     return React.createElement(Digit, { number: i }, null);
-    //   })
-
-    React.createElement(Digit, { number: aHours[0] }, null),
-    React.createElement(Digit, { number: aHours[1] }, null),
-    React.createElement(Colon, {}, null),
-
-    React.createElement(Digit, { number: aMinutes[0] }, null),
-    React.createElement(Digit, { number: aMinutes[1] }, null),
-    React.createElement(Colon, {}, null),
-
-    React.createElement(Digit, { number: aSeconds[0] }, null),
-    React.createElement(Digit, { number: aSeconds[1] }, null)
-  ]);
 }
 
 function go() {

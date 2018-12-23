@@ -1,0 +1,110 @@
+.clock {
+}
+
+.digit, .colon {
+  position: relative;
+  display: inline-block;
+  width: 10px;
+  height: 110px;
+  margin: 5px;
+}
+
+.colon {
+  background: linear-gradient(-90deg, black 10px, transparent 10px),
+              linear-gradient(-90deg, black 10px, transparent 10px);
+  background-position: 0 40px, 0 65px;
+  background-repeat: no-repeat;
+  background-size: 10px 10px, 10px 10px;
+}
+
+.digit {
+  width: 60px;
+  background-image: linear-gradient(90deg, transparent 10px, silver 10px, silver 50px, transparent 50px),   /*  Top  */
+                    linear-gradient(90deg, transparent 10px, silver 10px, silver 50px, transparent 50px),   /* Middle*/
+                    linear-gradient(90deg, transparent 10px, silver 10px, silver 50px, transparent 50px),   /* Bottom*/
+                    linear-gradient(90deg, silver 10px, transparent 10px, transparent 50px, silver 50px),   /* Topleft */
+                    linear-gradient(90deg, silver 10px, transparent 10px, transparent 50px, silver 50px);   /* Bottomleft */
+  background-position: 0 0, 0 50px, 0 100px, 0 10px, 0 60px;
+  background-repeat: no-repeat;
+  background-size: 60px 10px, 60px 10px, 60px 10px, 60px 40px, 60px 40px;
+}
+
+.digit0 {
+  background-image: linear-gradient(90deg, transparent 10px, black 10px, black 50px, transparent 50px),   /*  Top  */
+                    linear-gradient(90deg, transparent 10px, silver 10px, silver 50px, transparent 50px),   /* Middle*/
+                    linear-gradient(90deg, transparent 10px, black 10px, black 50px, transparent 50px),   /* Bottom*/
+                    linear-gradient(90deg, black 10px, transparent 10px, transparent 50px, black 50px),   /* Topleft */
+                    linear-gradient(90deg, black 10px, transparent 10px, transparent 50px, black 50px);   /* Bottomleft */
+}
+
+.digit1 {
+  background-image: linear-gradient(90deg, transparent 10px, silver 10px, silver 50px, transparent 50px),   /*  Top  */
+                    linear-gradient(90deg, transparent 10px, silver 10px, silver 50px, transparent 50px),   /* Middle*/
+                    linear-gradient(90deg, transparent 10px, silver 10px, silver 50px, transparent 50px),   /* Bottom*/
+                    linear-gradient(90deg, silver 10px, transparent 10px, transparent 50px, black 50px),   /* Topleft */
+                    linear-gradient(90deg, silver 10px, transparent 10px, transparent 50px, black 50px);   /* Bottomleft */
+}
+
+.digit2 {
+  background-image: linear-gradient(90deg, transparent 10px, black 10px, black 50px, transparent 50px),   /*  Top  */
+                    linear-gradient(90deg, transparent 10px, black 10px, black 50px, transparent 50px),   /* Middle*/
+                    linear-gradient(90deg, transparent 10px, black 10px, black 50px, transparent 50px),   /* Bottom*/
+                    linear-gradient(90deg, silver 10px, transparent 10px, transparent 50px, black 50px),   /* Topleft */
+                    linear-gradient(90deg, black 10px, transparent 10px, transparent 50px, silver 50px);   /* Bottomleft */
+}
+
+.digit3 {
+  background-image: linear-gradient(90deg, transparent 10px, black 10px, black 50px, transparent 50px),   /*  Top  */
+                    linear-gradient(90deg, transparent 10px, black 10px, black 50px, transparent 50px),   /* Middle*/
+                    linear-gradient(90deg, transparent 10px, black 10px, black 50px, transparent 50px),   /* Bottom*/
+                    linear-gradient(90deg, silver 10px, transparent 10px, transparent 50px, black 50px),   /* Topleft */
+                    linear-gradient(90deg, silver 10px, transparent 10px, transparent 50px, black 50px);   /* Bottomleft */
+}
+
+.digit4 {
+  background-image: linear-gradient(90deg, transparent 10px, silver 10px, silver 50px, transparent 50px),   /*  Top  */
+                    linear-gradient(90deg, transparent 10px, black 10px, black 50px, transparent 50px),   /* Middle*/
+                    linear-gradient(90deg, transparent 10px, silver 10px, silver 50px, transparent 50px),   /* Bottom*/
+                    linear-gradient(90deg, black 10px, transparent 10px, transparent 50px, black 50px),   /* Topleft */
+                    linear-gradient(90deg, silver 10px, transparent 10px, transparent 50px, black 50px);   /* Bottomleft */
+}
+
+.digit5 {
+  background-image: linear-gradient(90deg, transparent 10px, black 10px, black 50px, transparent 50px),   /*  Top  */
+                    linear-gradient(90deg, transparent 10px, black 10px, black 50px, transparent 50px),   /* Middle*/
+                    linear-gradient(90deg, transparent 10px, black 10px, black 50px, transparent 50px),   /* Bottom*/
+                    linear-gradient(90deg, black 10px, transparent 10px, transparent 50px, silver 50px),   /* Topleft */
+                    linear-gradient(90deg, silver 10px, transparent 10px, transparent 50px, black 50px);   /* Bottomleft */
+}
+
+.digit6 {
+  background-image: linear-gradient(90deg, transparent 10px, silver 10px, silver 50px, transparent 50px),   /*  Top  */
+                    linear-gradient(90deg, transparent 10px, black 10px, black 50px, transparent 50px),   /* Middle*/
+                    linear-gradient(90deg, transparent 10px, black 10px, black 50px, transparent 50px),   /* Bottom*/
+                    linear-gradient(90deg, black 10px, transparent 10px, transparent 50px, silver 50px),   /* Topleft */
+                    linear-gradient(90deg, black 10px, transparent 10px, transparent 50px, black 50px);   /* Bottomleft */
+}
+
+.digit7 {
+  background-image: linear-gradient(90deg, transparent 10px, black 10px, black 50px, transparent 50px),   /*  Top  */
+                    linear-gradient(90deg, transparent 10px, silver 10px, silver 50px, transparent 50px),   /* Middle*/
+                    linear-gradient(90deg, transparent 10px, silver 10px, silver 50px, transparent 50px),   /* Bottom*/
+                    linear-gradient(90deg, silver 10px, transparent 10px, transparent 50px, black 50px),   /* Topleft */
+                    linear-gradient(90deg, silver 10px, transparent 10px, transparent 50px, black 50px);   /* Bottomleft */
+}
+
+.digit8 {
+  background-image: linear-gradient(90deg, transparent 10px, black 10px, black 50px, transparent 50px),   /*  Top  */
+                    linear-gradient(90deg, transparent 10px, black 10px, black 50px, transparent 50px),   /* Middle*/
+                    linear-gradient(90deg, transparent 10px, black 10px, black 50px, transparent 50px),   /* Bottom*/
+                    linear-gradient(90deg, black 10px, transparent 10px, transparent 50px, black 50px),   /* Topleft */
+                    linear-gradient(90deg, black 10px, transparent 10px, transparent 50px, black 50px);   /* Bottomleft */
+}
+
+.digit9 {
+  background-image: linear-gradient(90deg, transparent 10px, black 10px, black 50px, transparent 50px),   /*  Top  */
+                    linear-gradient(90deg, transparent 10px, black 10px, black 50px, transparent 50px),   /* Middle*/
+                    linear-gradient(90deg, transparent 10px, black 10px, black 50px, transparent 50px),   /* Bottom*/
+                    linear-gradient(90deg, black 10px, transparent 10px, transparent 50px, black 50px),   /* Topleft */
+                    linear-gradient(90deg, silver 10px, transparent 10px, transparent 50px, black 50px);   /* Bottomleft */
+}
