@@ -1,10 +1,14 @@
 // called for each member of window.aData
 function transformData(o) {
   o.formattedAge = getFormattedDateDiff(o.birthday, moment());
-  var sBirthdayCurrentYear = o.birthday.replace(/^[\d]+/, (new Date()).getFullYear());
+  var sBirthdayCurrentYear = o.birthday.replace(
+    /^[\d]+/,
+    new Date().getFullYear()
+  );
   var iBirthdayDayOfYear = getDayOfYear(sBirthdayCurrentYear);
   var iCurrentDayOfYear = getDayOfYear(moment());
-  if (iBirthdayDayOfYear > iCurrentDayOfYear) { // birthday has not yet passed
+  if (iBirthdayDayOfYear > iCurrentDayOfYear) {
+    // birthday has not yet passed
     o.daysUntilBirthday = iBirthdayDayOfYear - iCurrentDayOfYear;
   } else {
     o.daysUntilBirthday = iBirthdayDayOfYear + (365 - iCurrentDayOfYear);
@@ -23,8 +27,8 @@ function getFormattedDateDiff(date1, date2, intervals) {
     out = [];
   intervals = intervals || ["years", "months"];
   function singularize(s, num) {
-    return (num === 1 ? s.slice(0, -1) : s);
-  };
+    return num === 1 ? s.slice(0, -1) : s;
+  }
   intervals.forEach(function(interval) {
     var diff = a.diff(b, interval);
     b.add(diff, interval);
@@ -33,12 +37,16 @@ function getFormattedDateDiff(date1, date2, intervals) {
     }
   });
   return out.join(", ");
-};
+}
 
 // top-level React control
 function Home(props) {
   function createTimestamp() {
-    return React.createElement("h3", null, "Today is " + moment().format("MMMM DD, YYYY") + ".");
+    return React.createElement(
+      "h3",
+      null,
+      "Today is " + moment().format("MMMM DD, YYYY") + "."
+    );
   }
   function createTable(props) {
     function createHeaderRow() {
@@ -50,19 +58,24 @@ function Home(props) {
       ]);
     }
     function createRows() {
-      return props.data
-        .map(function(o) {
-          return React.createElement("tr", null, [
-            React.createElement("td", null, o.name),
-            React.createElement("td", null, o.birthday),
-            React.createElement("td", null, o.formattedAge),
-            React.createElement("td", null, o.daysUntilBirthday)
-          ]);
-        });
+      return props.data.map(function(o) {
+        return React.createElement("tr", null, [
+          React.createElement("td", null, o.name),
+          React.createElement("td", null, o.birthday),
+          React.createElement("td", null, o.formattedAge),
+          React.createElement("td", null, o.daysUntilBirthday)
+        ]);
+      });
     }
-    return React.createElement("table", {}, [createHeaderRow()].concat(createRows()));
+    return React.createElement(
+      "table",
+      {},
+      [createHeaderRow()].concat(createRows())
+    );
   }
-  return React.createElement("div", {},
+  return React.createElement(
+    "div",
+    {},
     createTimestamp(),
     React.createElement(window.Clock, {}, null),
     createTable(props)
@@ -71,9 +84,13 @@ function Home(props) {
 
 function go() {
   ReactDOM.render(
-    React.createElement(Home, {
-      data: window.aData.map(transformData)
-    }, null),
+    React.createElement(
+      Home,
+      {
+        data: window.aData.map(transformData)
+      },
+      null
+    ),
     document.getElementById("root")
   );
   setTimeout(go, 1000);
