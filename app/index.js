@@ -36,7 +36,7 @@ function getFormattedDateDiff(date1, date2, intervals) {
       out.push(diff + " " + singularize(interval, diff));
     }
   });
-  return out.join(", ");
+  return out.join(", ") || "0";
 }
 
 // top-level React control
