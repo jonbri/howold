@@ -14,5 +14,9 @@ window.aData = [
   {
     "name": "Jason",
     "birthday": "2017-05-08"
+  },
+  {
+    "name": "Lisa",
+    "birthday": "2019-11-14"
   }
 ];
