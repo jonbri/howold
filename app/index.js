@@ -77,7 +77,6 @@ function Home(props) {
     "div",
     {},
     createTimestamp(),
-    React.createElement(window.Clock, {}, null),
     createTable(props.birthdays),
     React.createElement(
       "br", {}
