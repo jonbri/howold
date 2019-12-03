@@ -48,17 +48,17 @@ function Home(props) {
       "Today is " + moment().format("MMMM DD, YYYY") + "."
     );
   }
-  function createTable(props) {
+  function createTable(data) {
     function createHeaderRow() {
       return React.createElement("tr", null, [
-        React.createElement("th", null, "Name"),
-        React.createElement("th", null, "Birthday"),
-        React.createElement("th", null, "Age"),
-        React.createElement("th", null, "Days Until Birthday")
+        React.createElement("th", null, ""),
+        React.createElement("th", null, ""),
+        React.createElement("th", null, ""),
+        React.createElement("th", null, "Days Until")
       ]);
     }
     function createRows() {
-      return props.data.map(function(o) {
+      return data.map(function(o) {
         return React.createElement("tr", null, [
           React.createElement("td", null, o.name),
           React.createElement("td", null, o.birthday),
@@ -78,7 +78,11 @@ function Home(props) {
     {},
     createTimestamp(),
     React.createElement(window.Clock, {}, null),
-    createTable(props)
+    createTable(props.birthdays),
+    React.createElement(
+      "br", {}
+    ),
+    createTable(props.other)
   );
 }
 
@@ -87,7 +91,8 @@ function go() {
     React.createElement(
       Home,
       {
-        data: window.aData.map(transformData)
+        birthdays: window.aData.birthdays.map(transformData),
+        other: window.aData.other.map(transformData)
       },
       null
     ),
