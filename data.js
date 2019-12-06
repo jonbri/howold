@@ -31,12 +31,12 @@ window.aData.other = [
     "birthday": "2014-01-31"
   },
   {
-    "name": "SAS",
-    "birthday": "2008-06-05"
-  },
-  {
     "name": "NC State Grad",
     "birthday": "2010-08-01"
+  },
+  {
+    "name": "SAS",
+    "birthday": "2008-06-05"
   },
   {
     "name": "North Carolina",
