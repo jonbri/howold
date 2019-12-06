@@ -54,7 +54,7 @@ function Home(props) {
         React.createElement("th", null, ""),
         React.createElement("th", null, ""),
         React.createElement("th", null, ""),
-        React.createElement("th", null, "Days Until")
+        React.createElement("th", null, "Anniv")
       ]);
     }
     function createRows() {
