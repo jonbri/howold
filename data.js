@@ -24,7 +24,7 @@ window.aData.birthdays = [
 window.aData.other = [
   {
     "name": "Haddington",
-    "birthday": "2019-05-28"
+    "birthday": "2019-06-28"
   },
   {
     "name": "Wedding",
