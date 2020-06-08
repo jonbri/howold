@@ -19,6 +19,14 @@ window.aData.birthdays = [
   {
     "name": "Lisa",
     "birthday": "2019-11-14"
+  },
+  {
+    "name": "LaoYe",
+    "birthday": "1954-06-03"
+  },
+  {
+    "name": "LaoLao",
+    "birthday": "1955-02-07"
   }
 ];
 window.aData.other = [
