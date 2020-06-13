@@ -6,7 +6,7 @@
   "scripts": {
     "prettier": "prettier --write app/index.js app/Clock.js",
     "prettier:check": "prettier --check app/index.js app/Clock.js",
-    "lint": "eslint app/index.js app/Clock.js",
+    "lint": "eslint app/index.js",
     "test": "npm run lint && npm run prettier:check"
   },
   "repository": {
