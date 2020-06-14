@@ -70,6 +70,9 @@ function Home(props) {
       [createHeaderRow()].concat(createRows())
     );
   }
+  function createUpcomingTitle() {
+    return React.createElement("h3", null, "Soon:");
+  }
   function createUpcoming() {
     var sorted = props.dates.slice();
     sorted = sorted.filter(function(o) {
@@ -81,7 +84,7 @@ function Home(props) {
       if (o0.daysUntilBirthday > o1.daysUntilBirthday) return 1;
     });
 
-    var display = "Soon: ";
+    var display = "";
     for (var i = 0; i < 5; i++) {
       display += sorted[i].name + " " + sorted[i].daysUntilBirthday + " ";
     }
@@ -92,6 +95,7 @@ function Home(props) {
     {},
     createTimestamp(),
     createTable(props.dates),
+    createUpcomingTitle(),
     createUpcoming()
   );
 }
