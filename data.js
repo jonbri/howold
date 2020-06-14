@@ -1,5 +1,4 @@
-window.aData = {};
-window.aData.birthdays = [
+window.dates = [
   {
     name: "Tracy",
     birthday: "1983-07-07",
@@ -28,8 +27,6 @@ window.aData.birthdays = [
     name: "LaoLao",
     birthday: "1955-02-07",
   },
-];
-window.aData.other = [
   {
     name: "Haddington",
     birthday: "2019-06-28",
@@ -54,9 +51,6 @@ window.aData.other = [
     name: "NC",
     birthday: "1996-08-01",
   },
-];
-
-window.aData.other1 = [
   {
     name: "Joe",
     birthday: "1937-02-19",

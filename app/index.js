@@ -55,8 +55,8 @@ function Home(props) {
     }
     function createRows() {
       return data.map(function(o) {
-        var rowColor = o.hide === true ? "silver" : "black";
-        return React.createElement("tr", { style: { color: rowColor } }, [
+        var rowColor = o.hide === true ? "hide" : "";
+        return React.createElement("tr", { className: rowColor }, [
           React.createElement("td", null, o.name),
           React.createElement("td", null, o.formattedAge),
           React.createElement("td", null, o.birthday),
@@ -71,11 +71,10 @@ function Home(props) {
     );
   }
   function createUpcoming() {
-    var all = props.birthdays.concat(props.other).concat(props.other1);
-    all = all.filter(function(o) {
+    var sorted = props.dates.slice();
+    sorted = sorted.filter(function(o) {
       return o.name !== "ZDBrink";
     });
-    var sorted = all.slice();
     sorted = sorted.sort(function(o0, o1) {
       if (o0.daysUntilBirthday === o1.daysUntilBirthday) return 0;
       if (o0.daysUntilBirthday < o1.daysUntilBirthday) return -1;
@@ -92,24 +91,18 @@ function Home(props) {
     "div",
     {},
     createTimestamp(),
-    createTable(props.birthdays),
-    createTable(props.other),
-    createTable(props.other1),
+    createTable(props.dates),
     createUpcoming()
   );
 }
 
 function go() {
-  var birthdays = window.aData.birthdays.map(transformData),
-    other = window.aData.other.map(transformData),
-    other1 = window.aData.other1.map(transformData);
+  var dates = window.dates.map(transformData);
   ReactDOM.render(
     React.createElement(
       Home,
       {
-        birthdays: birthdays,
-        other: other,
-        other1: other1,
+        dates: dates,
       },
       null
     ),
