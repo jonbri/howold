@@ -85,13 +85,16 @@ function Home(props) {
 }
 
 function go() {
+  var birthdays = window.aData.birthdays.map(transformData);
+  var other = window.aData.other.map(transformData);
+  var other1 = window.aData.other1.map(transformData);
   ReactDOM.render(
     React.createElement(
       Home,
       {
-        birthdays: window.aData.birthdays.map(transformData),
-        other: window.aData.other.map(transformData),
-        other1: window.aData.other1.map(transformData),
+        birthdays: birthdays,
+        other: other,
+        other1: other1,
       },
       null
     ),
