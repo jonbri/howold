@@ -73,7 +73,7 @@ function Home(props) {
   function createUpcoming() {
     var sorted = props.dates.slice();
     sorted = sorted.filter(function(o) {
-      return o.name !== "ZDBrink";
+      return o.skip !== false;
     });
     sorted = sorted.sort(function(o0, o1) {
       if (o0.daysUntilBirthday === o1.daysUntilBirthday) return 0;
@@ -81,7 +81,7 @@ function Home(props) {
       if (o0.daysUntilBirthday > o1.daysUntilBirthday) return 1;
     });
 
-    var display = "Upcoming: ";
+    var display = "Soon: ";
     for (var i = 0; i < 5; i++) {
       display += sorted[i].name + " " + sorted[i].daysUntilBirthday + " ";
     }
