@@ -39,7 +39,7 @@ window.aData.other = [
     birthday: "2014-01-31",
   },
   {
-    name: "NC State Grad",
+    name: "School",
     birthday: "2010-08-01",
   },
   {
@@ -51,74 +51,78 @@ window.aData.other = [
     birthday: "2020-03-03",
   },
   {
-    name: "North Carolina",
+    name: "NC",
     birthday: "1996-08-01",
   },
 ];
 
 window.aData.other1 = [
   {
-    name: "Joseph Baumann",
+    name: "Joe",
     birthday: "1937-02-19",
   },
   {
-    name: "Phyllis Baumann",
+    name: "Phyllis",
     birthday: "1941-09-19",
   },
   {
-    name: "Alison Brink",
+    name: "Alison",
     birthday: "1991-09-13",
   },
   {
-    name: "Ashley Reher",
+    name: "Ashley",
     birthday: "1988-11-10",
   },
   {
-    name: "Alex Reher",
+    name: "Alex",
     birthday: "1986-06-17",
   },
   {
-    name: "Jacob A Reher",
+    name: "Jacob",
     birthday: "2012-03-07",
   },
   {
-    name: "Emma Reher",
+    name: "Emma",
     birthday: "2014-09-12",
   },
   {
-    name: "Sebastian Reher",
+    name: "Sebastian",
     birthday: "1963-04-27",
   },
   {
-    name: "Birgit Reher",
+    name: "Birgit",
     birthday: "1963-02-27",
   },
   {
-    name: "Jenalee Brink",
+    name: "Jenalee",
     birthday: "1989-12-29",
   },
   {
-    name: "Stephen Gorfien",
+    name: "Steve",
     birthday: "1958-02-04",
   },
   {
-    name: "Janet Gorfien",
+    name: "Janet",
     birthday: "1959-06-25",
   },
   {
-    name: "David Gorfien",
+    name: "David",
     birthday: "1991-02-14",
   },
   {
-    name: "Matthew Gorfien",
+    name: "Matt",
     birthday: "1988-02-08",
   },
   {
-    name: "Michael Baumann",
+    name: "Michael",
     birthday: "1961-08-31",
   },
   {
-    name: "Sherry Brink",
+    name: "Adam",
+    birthday: "1985-04-28",
+  },
+  {
+    name: "Sherry",
     birthday: "1963-11-23",
   },
   {

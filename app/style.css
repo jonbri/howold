@@ -2,7 +2,8 @@ body {
   background-color: aqua;
 }
 
-h3 {
+h3,
+h4 {
   margin: 0;
 }
 
@@ -13,4 +14,8 @@ ul {
 
 table td {
   padding: 5px 3px;
+}
+
+table td:first-child {
+  font-weight: bold;
 }

@@ -42,11 +42,7 @@ function getFormattedDateDiff(date1, date2, intervals) {
 // top-level React control
 function Home(props) {
   function createTimestamp() {
-    return React.createElement(
-      "h3",
-      null,
-      "Today is " + moment().format("MMMM DD, YYYY") + "."
-    );
+    return React.createElement("h3", null, moment().format("MMMM DD, YYYY"));
   }
   function createTable(data) {
     function createHeaderRow() {
@@ -74,20 +70,39 @@ function Home(props) {
       [createHeaderRow()].concat(createRows())
     );
   }
+  function createUpcoming() {
+    var all = props.birthdays.concat(props.other).concat(props.other1);
+    all = all.filter(function(o) {
+      return o.name !== "ZDBrink";
+    });
+    var sorted = all.slice();
+    sorted = sorted.sort(function(o0, o1) {
+      if (o0.daysUntilBirthday === o1.daysUntilBirthday) return 0;
+      if (o0.daysUntilBirthday < o1.daysUntilBirthday) return -1;
+      if (o0.daysUntilBirthday > o1.daysUntilBirthday) return 1;
+    });
+
+    var display = "Upcoming: ";
+    for (var i = 0; i < 5; i++) {
+      display += sorted[i].name + " " + sorted[i].daysUntilBirthday + " ";
+    }
+    return React.createElement("h4", null, display);
+  }
   return React.createElement(
     "div",
     {},
     createTimestamp(),
     createTable(props.birthdays),
     createTable(props.other),
-    createTable(props.other1)
+    createTable(props.other1),
+    createUpcoming()
   );
 }
 
 function go() {
-  var birthdays = window.aData.birthdays.map(transformData);
-  var other = window.aData.other.map(transformData);
-  var other1 = window.aData.other1.map(transformData);
+  var birthdays = window.aData.birthdays.map(transformData),
+    other = window.aData.other.map(transformData),
+    other1 = window.aData.other1.map(transformData);
   ReactDOM.render(
     React.createElement(
       Home,
