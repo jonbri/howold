@@ -54,7 +54,7 @@ function Home(props) {
         React.createElement("th", null, ""),
         React.createElement("th", null, ""),
         React.createElement("th", null, ""),
-        React.createElement("th", null, "Anniv"),
+        React.createElement("th", null, ""),
       ]);
     }
     function createRows() {
@@ -62,9 +62,9 @@ function Home(props) {
         var rowColor = o.hide === true ? "silver" : "black";
         return React.createElement("tr", { style: { color: rowColor } }, [
           React.createElement("td", null, o.name),
-          React.createElement("td", null, o.birthday),
           React.createElement("td", null, o.formattedAge),
-          React.createElement("td", null, o.daysUntilBirthday),
+          React.createElement("td", null, o.birthday),
+          React.createElement("td", null, "(-" + o.daysUntilBirthday + ")"),
         ]);
       });
     }
@@ -79,9 +79,7 @@ function Home(props) {
     {},
     createTimestamp(),
     createTable(props.birthdays),
-    React.createElement("br", {}),
     createTable(props.other),
-    React.createElement("br", {}),
     createTable(props.other1)
   );
 }

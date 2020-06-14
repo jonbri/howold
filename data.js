@@ -106,11 +106,11 @@ window.aData.other1 = [
     birthday: "1959-06-25",
   },
   {
-    name: "David Martin Gorfien",
+    name: "David Gorfien",
     birthday: "1991-02-14",
   },
   {
-    name: "Matthew Charles Gorfien",
+    name: "Matthew Gorfien",
     birthday: "1988-02-08",
   },
   {
