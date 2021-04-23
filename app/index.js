@@ -50,7 +50,7 @@ function Home(props) {
         React.createElement("th", null, ""),
         React.createElement("th", null, ""),
         React.createElement("th", null, ""),
-        React.createElement("th", null, ""),
+        React.createElement("th", null, "")
       ]);
     }
     function createRows() {
@@ -60,7 +60,7 @@ function Home(props) {
           React.createElement("td", null, o.name),
           React.createElement("td", null, o.formattedAge),
           React.createElement("td", null, o.birthday),
-          React.createElement("td", null, "(-" + o.daysUntilBirthday + ")"),
+          React.createElement("td", null, "(-" + o.daysUntilBirthday + ")")
         ]);
       });
     }
@@ -106,7 +106,7 @@ function go() {
     React.createElement(
       Home,
       {
-        dates: dates,
+        dates: dates
       },
       null
     ),
