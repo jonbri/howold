@@ -84,19 +84,19 @@ function Home(props) {
       if (o0.daysUntilBirthday > o1.daysUntilBirthday) return 1;
     });
 
-    var display = "";
+    var display = [];
     for (var i = 0; i < 5; i++) {
-      display += sorted[i].name + " " + sorted[i].daysUntilBirthday + " ";
+      display.push(sorted[i].name + ": " + sorted[i].daysUntilBirthday);
     }
-    return React.createElement("h4", null, display);
+    return React.createElement("h4", null, display.join(", "));
   }
   return React.createElement(
     "div",
     {},
     createTimestamp(),
-    createTable(props.dates),
     createUpcomingTitle(),
-    createUpcoming()
+    createUpcoming(),
+    createTable(props.dates)
   );
 }
 

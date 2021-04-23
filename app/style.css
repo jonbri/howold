@@ -12,6 +12,9 @@ h4 {
 h3 {
   font-style: italic;
 }
+h3:first-child {
+  font-weight: bold;
+}
 
 ul {
   list-style-type: none;
