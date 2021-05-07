@@ -56,12 +56,23 @@ function Home(props) {
     function createRows() {
       return data.map(function(o) {
         var rowColor = o.hide === true ? "hide" : "";
-        return React.createElement("tr", { className: rowColor }, [
-          React.createElement("td", null, o.name),
-          React.createElement("td", null, o.formattedAge),
-          React.createElement("td", null, o.birthday),
-          React.createElement("td", null, "(-" + o.daysUntilBirthday + ")")
-        ]);
+        var string1 = (new Date()).getMonth() + '-' + (new Date()).getDate();
+        var string2 = (new Date(o.birthday + ' EDT')).getMonth() + '-' + (new Date(o.birthday + ' EDT')).getDate();
+        if (string1 === string2) {
+          return React.createElement("tr", { className: rowColor, style: { color: 'green', fontSize: '20px' } }, [
+            React.createElement("td", null, o.name),
+            React.createElement("td", null, o.formattedAge),
+            React.createElement("td", null, o.birthday),
+            React.createElement("td", null, "(-" + o.daysUntilBirthday + ")")
+          ]);
+        } else {
+          return React.createElement("tr", { className: rowColor }, [
+            React.createElement("td", null, o.name),
+            React.createElement("td", null, o.formattedAge),
+            React.createElement("td", null, o.birthday),
+            React.createElement("td", null, "(-" + o.daysUntilBirthday + ")")
+          ]);
+        }
       });
     }
     return React.createElement(
