@@ -81,9 +81,6 @@ function Home(props) {
       [createHeaderRow()].concat(createRows())
     );
   }
-  function createUpcomingTitle() {
-    return React.createElement("h3", null, "Soon:");
-  }
   function createUpcoming() {
     var sorted = props.dates.slice();
     sorted = sorted.filter(function(o) {
@@ -105,7 +102,6 @@ function Home(props) {
     "div",
     {},
     createTimestamp(),
-    createUpcomingTitle(),
     createUpcoming(),
     createTable(props.dates)
   );
