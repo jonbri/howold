@@ -1,6 +1,13 @@
+/* Colors:
+  #418637 - Dark Green
+  #75b540 - Medium Green
+  #97c260 - Light Green
+*/
+
 body {
-  background-color: rgb(235, 199, 110);
+  background-color: #97c260;
   font-family: tahoma;
+  color: black;
 }
 
 h3,
@@ -27,7 +34,7 @@ ul {
 }
 
 tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: #75b540;
 }
 
 table {
