@@ -4,8 +4,8 @@
   "description": "",
   "main": "data.js",
   "scripts": {
-    "format": "prettier --write app/index.js app/Clock.js",
-    "format:check": "prettier --check app/index.js app/Clock.js",
+    "format": "prettier --write app/index.js",
+    "format:check": "prettier --check app/index.js",
     "lint": "eslint app/index.js",
     "test": "npm run lint && npm run prettier:check"
   },
