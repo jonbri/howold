@@ -1,6 +1,6 @@
 {
-  "name": "howold",
-  "version": "1.0.0",
+  "name": "thyme",
+  "version": "2.0.0",
   "description": "",
   "main": "data.js",
   "scripts": {
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jonbri/howold.git"
+    "url": "git+https://github.com/jonbri/thyme.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jonbri/howold/issues"
+    "url": "https://github.com/jonbri/thyme/issues"
   },
-  "homepage": "https://github.com/jonbri/howold#readme",
+  "homepage": "https://github.com/jonbri/thyme#readme",
   "devDependencies": {
     "eslint": "^5.4.0",
     "eslint-config-standard": "^12.0.0",
