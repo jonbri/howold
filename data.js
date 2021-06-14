@@ -124,6 +124,10 @@ window.dates = [
     birthday: "1981-03-14",
   },
   {
+    name: "Sol",
+    birthday: "1984-07-28",
+  },
+  {
     name: "Sherry",
     birthday: "1963-11-23",
   },
