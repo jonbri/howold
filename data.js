@@ -52,8 +52,8 @@ window.dates = [
     birthday: "1996-08-01",
   },
   {
-    name: "freedom",
-    birthday: "2021-07-01",
+    name: "applesauce",
+    birthday: "2021-07-02",
   },
   {
     name: "Joe",
