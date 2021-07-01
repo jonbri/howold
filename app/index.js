@@ -56,23 +56,26 @@ function Home(props) {
     function createRows() {
       return data.map(function(o) {
         var rowColor = o.hide === true ? "hide" : "";
-        var string1 = new Date().getMonth() + "-" + new Date().getDate();
-        var string2 =
-          new Date(o.birthday + " EDT").getMonth() +
-          "-" +
-          new Date(o.birthday + " EDT").getDate();
-        if (string1 === string2) {
+        const targetSplit = o.birthday.split("-");
+        const nowMonth = new Date().getMonth() + 1;
+        const nowDate = new Date().getDate();
+        const targetMonth = parseInt(targetSplit[1]);
+        const targetDate = parseInt(targetSplit[2]);
+        if (nowMonth === targetMonth && nowDate === targetDate) {
           return React.createElement(
             "tr",
             {
-              className: rowColor,
-              style: { color: "green", fontSize: "20px" }
+              className: rowColor ? rowColor + " today" : "today",
+              style: {}
             },
             [
-              React.createElement("td", null, o.name),
-              React.createElement("td", null, o.formattedAge),
-              React.createElement("td", null, o.birthday),
-              React.createElement("td", null, "(-" + o.daysUntilBirthday + ")")
+              React.createElement("td", { colSpan: 2 }, o.name.toUpperCase()),
+              React.createElement(
+                "td",
+                { style: { fontSize: "16px" } },
+                o.birthday
+              ),
+              React.createElement("td", null, "")
             ]
           );
         } else {
@@ -123,7 +126,7 @@ function go() {
     React.createElement(
       Home,
       {
-        dates: dates
+        dates
       },
       null
     ),

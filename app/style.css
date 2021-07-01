@@ -2,12 +2,20 @@
   #418637 - Dark Green
   #75b540 - Medium Green
   #97c260 - Light Green
+  #007ACA - Darker Green
 */
 
 body {
   background-color: #97c260;
   font-family: tahoma;
   color: black;
+}
+
+.today {
+  color: #007ACA;
+  font-size: 20px;
+  border-left: 5px solid #007ACA;
+  border-right: 5px solid#007ACA;
 }
 
 h3,
