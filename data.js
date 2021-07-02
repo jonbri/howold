@@ -53,7 +53,7 @@ window.dates = [
   },
   {
     name: "applesauce",
-    birthday: "2021-07-02",
+    birthday: "2021-07-03",
   },
   {
     name: "Joe",
