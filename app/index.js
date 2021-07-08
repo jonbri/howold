@@ -69,7 +69,13 @@ function Home(props) {
               style: {}
             },
             [
-              React.createElement("td", { colSpan: 2 }, o.name.toUpperCase()),
+              React.createElement(
+                "td",
+                { colSpan: 2 },
+                o.formattedAge.replace(/[^\d]+/, "") +
+                  " " +
+                  o.name.toUpperCase()
+              ),
               React.createElement(
                 "td",
                 { style: { fontSize: "16px" } },
